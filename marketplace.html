@@ -25,13 +25,31 @@
   </header>
 
   <main class="container marketplace-page">
-    <section class="page-title">
-      <span class="eyebrow">Matchmaking productivo</span>
-      <h1>Conexión dinámica entre oferta agropecuaria, láctea, orgánica y demanda institucional.</h1>
-      <p>Filtra publicaciones por departamento, categoría y tipo de publicación. Las tarjetas se renderizan desde JavaScript.</p>
+    <section class="page-title marketplace-hero-panel">
+      <div>
+        <span class="eyebrow">Matchmaking productivo</span>
+        <h1>Conexión dinámica entre oferta agropecuaria, láctea, orgánica y demanda institucional.</h1>
+        <p>Ahora el marketplace permite cargar fotos reales de productos, buscar en tiempo real, ordenar resultados, cambiar vista y abrir fichas comerciales interactivas.</p>
+      </div>
+      <div class="hero-micro-card">
+        <strong>Modo práctico</strong>
+        <span>Publica, filtra, visualiza y prioriza oportunidades comerciales desde una sola pantalla.</span>
+      </div>
     </section>
 
-    <section class="filters-panel" aria-label="Filtros del marketplace">
+    <section class="market-kpi-strip" aria-label="Indicadores del marketplace">
+      <article><span>Resultados</span><strong id="marketKpiResults">0</strong></article>
+      <article><span>Ofertas</span><strong id="marketKpiOffers">0</strong></article>
+      <article><span>Demandas</span><strong id="marketKpiDemands">0</strong></article>
+      <article><span>Valor visible</span><strong id="marketKpiValue">$0</strong></article>
+      <article><span>Territorios</span><strong id="marketKpiTerritories">0</strong></article>
+    </section>
+
+    <section class="filters-panel advanced-filters" aria-label="Filtros del marketplace">
+      <div class="filter-control search-control">
+        <label for="searchFilter">Búsqueda inteligente</label>
+        <input id="searchFilter" type="search" placeholder="Buscar producto, actor, municipio o categoría" />
+      </div>
       <div class="filter-control">
         <label for="departmentFilter">Departamento</label>
         <select id="departmentFilter">
@@ -52,33 +70,63 @@
         </select>
       </div>
       <div class="filter-control">
-        <label for="typeFilter">Tipo de publicación</label>
+        <label for="typeFilter">Tipo</label>
         <select id="typeFilter">
           <option value="Todos">Todos</option>
           <option value="Oferta">Oferta</option>
           <option value="Demanda">Demanda</option>
         </select>
       </div>
+      <div class="filter-control">
+        <label for="sortFilter">Ordenar</label>
+        <select id="sortFilter">
+          <option value="recientes">Más recientes</option>
+          <option value="valor_desc">Mayor valor</option>
+          <option value="valor_asc">Menor valor</option>
+          <option value="cantidad_desc">Mayor cantidad</option>
+          <option value="nombre">Nombre A-Z</option>
+        </select>
+      </div>
       <button id="clearFiltersBtn" class="btn btn-outline" type="button">Limpiar filtros</button>
     </section>
 
-    <section class="marketplace-content">
+    <section class="marketplace-content enhanced-marketplace">
       <div>
         <div class="panel-heading marketplace-heading">
           <div>
             <span class="eyebrow">Publicaciones</span>
             <h2>Resultados disponibles</h2>
           </div>
-          <span id="resultsCount" class="badge badge-neutral">0 resultados</span>
+          <div class="market-actions">
+            <span id="resultsCount" class="badge badge-neutral">0 resultados</span>
+            <div class="view-toggle" aria-label="Cambiar vista">
+              <button class="btn btn-outline small is-active" type="button" data-view="grid">Grid</button>
+              <button class="btn btn-outline small" type="button" data-view="list">Lista</button>
+            </div>
+          </div>
+        </div>
+        <div class="quick-tips">
+          <span>Tip: sube una foto del producto para mejorar la confianza comercial.</span>
+          <span>Las fichas se guardan localmente en este prototipo.</span>
         </div>
         <div id="marketplaceGrid" class="marketplace-grid"></div>
-        <p id="emptyState" class="empty-state hidden">No hay resultados con los filtros seleccionados.</p>
+        <p id="emptyState" class="empty-state hidden">No hay resultados con los filtros seleccionados. Ajusta los filtros o registra una nueva publicación.</p>
       </div>
 
-      <aside class="panel-card form-panel">
-        <span class="eyebrow">Formulario simulado</span>
+      <aside class="panel-card form-panel smart-form-panel">
+        <span class="eyebrow">Formulario interactivo</span>
         <h2>Agregar oferta o demanda</h2>
+        <p class="form-help">Carga una foto real del producto o requerimiento. Si no subes imagen, el sistema asigna una visual institucional automática.</p>
         <form id="publicationForm" class="form-stack">
+          <div class="photo-uploader">
+            <label for="pubPhoto">Foto del producto</label>
+            <label id="photoPreview" class="photo-preview" for="pubPhoto">
+              <input id="pubPhoto" type="file" accept="image/*" />
+              <span id="photoPreviewText">Arrastra o selecciona una foto del producto</span>
+            </label>
+            <small>Formato JPG/PNG/WebP. Tamaño sugerido máximo: 2.5 MB.</small>
+          </div>
+
           <label for="pubType">Tipo</label>
           <select id="pubType" required>
             <option value="Oferta">Oferta</option>
@@ -123,11 +171,15 @@
           <label for="pubActor">Actor que publica</label>
           <input id="pubActor" type="text" placeholder="Asociación / Comprador" required />
 
-          <button class="btn btn-primary full" type="submit">Agregar publicación</button>
+          <button class="btn btn-primary full" type="submit">Agregar publicación visual</button>
           <p id="publicationMessage" class="form-message" role="status"></p>
         </form>
       </aside>
     </section>
+
+    <div id="publicationModal" class="modal-overlay hidden" aria-hidden="true">
+      <div id="modalBody" class="modal-card" role="dialog" aria-modal="true" aria-label="Detalle de publicación"></div>
+    </div>
   </main>
 
   <script src="app.js"></script>
