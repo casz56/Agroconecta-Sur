@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard INFIHUILA | AgroConecta Sur</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="dashboard">
+  <header class="site-header compact-header">
+    <div class="container header-content">
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="assets/logo-infihuila.png" alt="Logo INFIHUILA" />
+        <div>
+          <strong>Dashboard INFIHUILA</strong>
+          <span id="sessionLabel">Panel administrativo</span>
+        </div>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">Inicio</a>
+        <a href="marketplace.html">Marketplace</a>
+        <button id="logoutBtn" class="btn btn-outline small" type="button">Cerrar sesión</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="dashboard-layout container">
+    <aside class="sidebar">
+      <h2>Menú institucional</h2>
+      <a href="#indicadores">Indicadores</a>
+      <a href="#analitica">Analítica visual</a>
+      <a href="#oportunidades">Oportunidades</a>
+      <a href="#territorio">Análisis territorial</a>
+      <a href="#alertas">Alertas</a>
+    </aside>
+
+    <section class="dashboard-main">
+      <div class="page-title">
+        <span class="eyebrow">Panel gerencial</span>
+        <h1>Gestión integral de oferta, demanda y oportunidades comerciales.</h1>
+        <p>
+          Tablero simulado para seguimiento institucional, análisis territorial y toma de decisiones
+          de INFIHUILA. Los indicadores, gráficas y tablas se calculan dinámicamente desde app.js y localStorage.
+        </p>
+      </div>
+
+      <section id="indicadores" class="kpi-grid" aria-label="Indicadores principales">
+        <article class="kpi-card"><span>Productores registrados</span><strong id="kpiProductores">0</strong><small>Actores oferentes únicos</small></article>
+        <article class="kpi-card"><span>Compradores activos</span><strong id="kpiCompradores">0</strong><small>Demandantes únicos</small></article>
+        <article class="kpi-card"><span>Ofertas publicadas</span><strong id="kpiOfertas">0</strong><small>Inventario regional</small></article>
+        <article class="kpi-card"><span>Demandas publicadas</span><strong id="kpiDemandas">0</strong><small>Requerimientos de compra</small></article>
+        <article class="kpi-card wide"><span>Valor potencial de negocios</span><strong id="kpiValor">$0</strong><small>Suma estimada de oferta y demanda</small></article>
+        <article class="kpi-card"><span>Departamentos cubiertos</span><strong id="kpiDepartamentos">0</strong><small>Cobertura surcolombiana</small></article>
+      </section>
+
+      <section id="analitica" class="analytics-grid" aria-label="Analítica visual">
+        <article class="chart-card">
+          <div class="chart-heading">
+            <div>
+              <span class="eyebrow">Gráfica de barras</span>
+              <h2>Valor potencial por departamento</h2>
+            </div>
+            <span class="badge badge-neutral" id="totalValueBadge">COP $0</span>
+          </div>
+          <canvas id="chartDepartmentValue" width="720" height="360" aria-label="Valor potencial por departamento" role="img"></canvas>
+        </article>
+
+        <article class="chart-card">
+          <div class="chart-heading">
+            <div>
+              <span class="eyebrow">Gráfica de torta</span>
+              <h2>Participación por categoría</h2>
+            </div>
+          </div>
+          <canvas id="chartCategoryPie" width="520" height="360" aria-label="Participación por categoría" role="img"></canvas>
+          <div id="categoryLegend" class="chart-legend"></div>
+        </article>
+
+        <article class="chart-card">
+          <div class="chart-heading">
+            <div>
+              <span class="eyebrow">Columnas comparativas</span>
+              <h2>Ofertas vs demandas por territorio</h2>
+            </div>
+          </div>
+          <canvas id="chartOfferDemand" width="720" height="360" aria-label="Ofertas y demandas por departamento" role="img"></canvas>
+        </article>
+
+        <article class="chart-card">
+          <div class="chart-heading">
+            <div>
+              <span class="eyebrow">Tendencia</span>
+              <h2>Evolución mensual de negocios potenciales</h2>
+            </div>
+          </div>
+          <canvas id="chartTrend" width="720" height="360" aria-label="Tendencia mensual de valor potencial" role="img"></canvas>
+        </article>
+      </section>
+
+      <section id="oportunidades" class="panel-card">
+        <div class="panel-heading">
+          <div>
+            <span class="eyebrow">Oportunidades</span>
+            <h2>Resumen de coincidencias comerciales priorizadas</h2>
+          </div>
+          <a class="btn btn-secondary small" href="marketplace.html">Ir al marketplace</a>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Producto</th>
+                <th>Oferta</th>
+                <th>Demanda</th>
+                <th>Departamento</th>
+                <th>Valor estimado</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="opportunitiesTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="territorio" class="panel-card">
+        <span class="eyebrow">Territorio</span>
+        <h2>Análisis territorial simulado</h2>
+        <div id="territoryAnalysis" class="territory-grid"></div>
+      </section>
+
+      <section id="alertas" class="alerts-grid">
+        <article class="alert-card success">
+          <strong>Recomendación comercial</strong>
+          <p>Priorizar cruces entre lácteos del Huila y demandas institucionales con periodicidad mensual.</p>
+        </article>
+        <article class="alert-card warning">
+          <strong>Alerta de cobertura</strong>
+          <p>Amazonas requiere mayor caracterización de productores para mejorar densidad de oferta.</p>
+        </article>
+        <article class="alert-card info">
+          <strong>Próximo módulo</strong>
+          <p>Activar trazabilidad, validación documental y reportes para compras públicas locales.</p>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

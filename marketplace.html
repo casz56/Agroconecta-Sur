@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketplace | AgroConecta Sur</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="marketplace">
+  <header class="site-header compact-header">
+    <div class="container header-content">
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="assets/logo-infihuila.png" alt="Logo INFIHUILA" />
+        <div>
+          <strong>Marketplace AgroConecta Sur</strong>
+          <span>Oferta y demanda regional</span>
+        </div>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">Inicio</a>
+        <a href="dashboard_infihuila.html">Dashboard</a>
+        <button id="logoutBtn" class="btn btn-outline small" type="button">Cerrar sesión</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container marketplace-page">
+    <section class="page-title">
+      <span class="eyebrow">Matchmaking productivo</span>
+      <h1>Conexión dinámica entre oferta agropecuaria, láctea, orgánica y demanda institucional.</h1>
+      <p>Filtra publicaciones por departamento, categoría y tipo de publicación. Las tarjetas se renderizan desde JavaScript.</p>
+    </section>
+
+    <section class="filters-panel" aria-label="Filtros del marketplace">
+      <div class="filter-control">
+        <label for="departmentFilter">Departamento</label>
+        <select id="departmentFilter">
+          <option value="Todos">Todos</option>
+          <option value="Huila">Huila</option>
+          <option value="Caquetá">Caquetá</option>
+          <option value="Putumayo">Putumayo</option>
+          <option value="Amazonas">Amazonas</option>
+        </select>
+      </div>
+      <div class="filter-control">
+        <label for="categoryFilter">Categoría</label>
+        <select id="categoryFilter">
+          <option value="Todas">Todas</option>
+          <option value="Lácteos">Lácteos</option>
+          <option value="Producción Agrícola">Producción Agrícola</option>
+          <option value="Orgánicos">Orgánicos</option>
+        </select>
+      </div>
+      <div class="filter-control">
+        <label for="typeFilter">Tipo de publicación</label>
+        <select id="typeFilter">
+          <option value="Todos">Todos</option>
+          <option value="Oferta">Oferta</option>
+          <option value="Demanda">Demanda</option>
+        </select>
+      </div>
+      <button id="clearFiltersBtn" class="btn btn-outline" type="button">Limpiar filtros</button>
+    </section>
+
+    <section class="marketplace-content">
+      <div>
+        <div class="panel-heading marketplace-heading">
+          <div>
+            <span class="eyebrow">Publicaciones</span>
+            <h2>Resultados disponibles</h2>
+          </div>
+          <span id="resultsCount" class="badge badge-neutral">0 resultados</span>
+        </div>
+        <div id="marketplaceGrid" class="marketplace-grid"></div>
+        <p id="emptyState" class="empty-state hidden">No hay resultados con los filtros seleccionados.</p>
+      </div>
+
+      <aside class="panel-card form-panel">
+        <span class="eyebrow">Formulario simulado</span>
+        <h2>Agregar oferta o demanda</h2>
+        <form id="publicationForm" class="form-stack">
+          <label for="pubType">Tipo</label>
+          <select id="pubType" required>
+            <option value="Oferta">Oferta</option>
+            <option value="Demanda">Demanda</option>
+          </select>
+
+          <label for="pubName">Producto o requerimiento</label>
+          <input id="pubName" type="text" placeholder="Ej. Queso campesino" required />
+
+          <label for="pubDepartment">Departamento</label>
+          <select id="pubDepartment" required>
+            <option value="Huila">Huila</option>
+            <option value="Caquetá">Caquetá</option>
+            <option value="Putumayo">Putumayo</option>
+            <option value="Amazonas">Amazonas</option>
+          </select>
+
+          <label for="pubMunicipality">Municipio</label>
+          <input id="pubMunicipality" type="text" placeholder="Ej. Neiva" required />
+
+          <label for="pubCategory">Categoría</label>
+          <select id="pubCategory" required>
+            <option value="Lácteos">Lácteos</option>
+            <option value="Producción Agrícola">Producción Agrícola</option>
+            <option value="Orgánicos">Orgánicos</option>
+          </select>
+
+          <div class="two-cols">
+            <div>
+              <label for="pubQuantity">Cantidad</label>
+              <input id="pubQuantity" type="number" min="1" placeholder="100" required />
+            </div>
+            <div>
+              <label for="pubUnit">Unidad</label>
+              <input id="pubUnit" type="text" placeholder="kg / litros" required />
+            </div>
+          </div>
+
+          <label for="pubPrice">Precio o presupuesto estimado</label>
+          <input id="pubPrice" type="number" min="0" placeholder="2500000" required />
+
+          <label for="pubActor">Actor que publica</label>
+          <input id="pubActor" type="text" placeholder="Asociación / Comprador" required />
+
+          <button class="btn btn-primary full" type="submit">Agregar publicación</button>
+          <p id="publicationMessage" class="form-message" role="status"></p>
+        </form>
+      </aside>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

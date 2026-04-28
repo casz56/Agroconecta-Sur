@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgroConecta Sur | Plataforma Surcolombiana de Matchmaking Agropecuario y Lácteo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="landing">
+  <header class="site-header">
+    <div class="container header-content">
+      <a class="brand" href="index.html" aria-label="Ir al inicio">
+        <img class="brand-logo" src="assets/logo-infihuila.png" alt="Logo INFIHUILA" />
+        <div>
+          <strong>AgroConecta Sur</strong>
+          <span>Plataforma Surcolombiana de Matchmaking</span>
+        </div>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#beneficios">Beneficios</a>
+        <a href="#gobernanza">Gobernanza</a>
+        <a href="marketplace.html">Marketplace</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">INFIHUILA · Huila · Caquetá · Putumayo · Amazonas</span>
+          <h1>Integración comercial para el agro, los lácteos y la agroindustria surcolombiana.</h1>
+          <p>
+            Plataforma institucional para conectar oferta productiva, demanda privada e institucional,
+            compras públicas locales, análisis territorial y oportunidades de negocio con enfoque de
+            desarrollo regional.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#acceso">Ingresar a la plataforma</a>
+            <a class="btn btn-secondary" href="marketplace.html">Explorar marketplace</a>
+          </div>
+        </div>
+
+        <aside class="login-card" id="acceso" aria-label="Portal de acceso simulado">
+          <div class="section-heading compact">
+            <span class="eyebrow">Portal de acceso</span>
+            <h2>Login simulado por rol</h2>
+            <p>Selecciona el perfil institucional o transaccional para ingresar.</p>
+          </div>
+
+          <form id="loginForm" class="form-stack">
+            <label for="roleSelect">Rol de acceso</label>
+            <select id="roleSelect" required>
+              <option value="">Selecciona un rol</option>
+              <option value="INFIHUILA">INFIHUILA</option>
+              <option value="USCO">USCO</option>
+              <option value="Gobernación del Huila">Gobernación del Huila</option>
+              <option value="Productor">Productor</option>
+              <option value="Comprador">Comprador</option>
+            </select>
+            <label for="userName">Nombre de usuario</label>
+            <input id="userName" type="text" placeholder="Ej. Gestor institucional" required />
+            <button class="btn btn-primary full" type="submit">Ingresar</button>
+            <p id="loginMessage" class="form-message" role="status"></p>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="beneficios">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Propósito funcional</span>
+          <h2>Una plataforma para ordenar, visibilizar y conectar el mercado regional.</h2>
+          <p>
+            Inspirada en modelos de comercialización láctea, identidad territorial y compras públicas
+            locales de alimentos, con gobernanza principal de INFIHUILA.
+          </p>
+        </div>
+
+        <div class="cards-grid four">
+          <article class="info-card">
+            <span class="icon-pill">P</span>
+            <h3>Productores</h3>
+            <p>Publican oferta disponible, certificaciones, volúmenes, frecuencia de entrega y ubicación.</p>
+          </article>
+          <article class="info-card">
+            <span class="icon-pill">C</span>
+            <h3>Compradores</h3>
+            <p>Registran requerimientos, presupuestos, periodicidad, ubicación y fecha estimada de compra.</p>
+          </article>
+          <article class="info-card">
+            <span class="icon-pill">E</span>
+            <h3>Entidades públicas</h3>
+            <p>Identifican oferta local para programas institucionales, compras públicas y abastecimiento territorial.</p>
+          </article>
+          <article class="info-card">
+            <span class="icon-pill">A</span>
+            <h3>Aliados estratégicos</h3>
+            <p>USCO y Gobernación consultan indicadores, análisis territorial e impacto económico-productivo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="gobernanza">
+      <div class="container split-layout">
+        <div>
+          <span class="eyebrow">Gobernanza</span>
+          <h2>INFIHUILA como administrador, estructurador y articulador del ecosistema.</h2>
+          <p>
+            El modelo permite gestionar usuarios, productores, compradores, ofertas, demandas, métricas,
+            oportunidades comerciales y análisis territorial, dejando preparada la arquitectura para backend,
+            autenticación real y analítica avanzada.
+          </p>
+        </div>
+        <div class="role-list">
+          <div><strong>Administrador:</strong> INFIHUILA con control total.</div>
+          <div><strong>Consulta estratégica:</strong> USCO y Gobernación del Huila.</div>
+          <div><strong>Transaccional:</strong> productores, compradores y operadores institucionales futuros.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p><strong>AgroConecta Sur</strong> · Plataforma conceptual liderada por INFIHUILA.</p>
+      <p>Desarrollo regional · Transparencia · Integración productiva · Compras públicas locales</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
