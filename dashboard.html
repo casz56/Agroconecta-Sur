@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Energético | AgroEnergía Conecta Sur</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="dashboard">
+  <header class="site-header">
+    <div class="container header-content">
+      <a class="brand" href="index.html"><img src="assets/logo-infihuila.png" alt="Logo INFIHUILA" class="brand-logo" /><div><strong>AgroEnergía Conecta Sur</strong><span>Dashboard energético comunitario e institucional</span></div></a>
+      <nav class="main-nav"><a href="index.html">Inicio</a><a href="plataforma.html">Comunidad energética</a><a href="dashboard.html" class="active">Dashboard</a><a href="reportes.html">Reportes CTeI</a></nav>
+      <button class="nav-toggle" id="navToggle" type="button">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero dashboard-hero">
+      <div class="container dashboard-top">
+        <div><span class="eyebrow">Panel institucional</span><h1>Monitoreo de generación, consumo, ahorro, emisiones y apropiación.</h1><p>Tablero demostrativo alineado con los productos CTeI: plataforma inteligente, sensores, dashboard, IA energética y validación integral.</p></div>
+        <button class="btn btn-primary" id="simulateMonth" type="button">Simular nuevo mes</button>
+      </div>
+    </section>
+
+    <section class="section kpi-section">
+      <div class="container kpi-grid" id="kpiGrid"></div>
+    </section>
+
+    <section class="section compact-top">
+      <div class="container dashboard-grid">
+        <article class="chart-card wide">
+          <div class="card-title"><div><span class="eyebrow">Generación vs consumo</span><h2>Tendencia mensual kWh</h2></div><span class="chip">Sensores / IoT</span></div>
+          <canvas id="energyTrend" width="900" height="360" aria-label="Gráfica de generación y consumo"></canvas>
+        </article>
+        <article class="chart-card">
+          <div class="card-title"><div><span class="eyebrow">Cargas críticas</span><h2>Consumo por proceso</h2></div></div>
+          <canvas id="loadChart" width="420" height="320"></canvas>
+        </article>
+        <article class="chart-card">
+          <div class="card-title"><div><span class="eyebrow">Validación CTeI</span><h2>Avance TRL</h2></div><span class="chip green">7 → 8</span></div>
+          <div class="trl-meter"><div class="trl-progress" id="trlProgress"></div></div>
+          <div class="trl-labels"><span>TRL 6</span><span>TRL 7</span><span>TRL 8</span></div>
+          <p class="muted">Meta de cierre: sistema completo y validado en entorno real con usuarios, datos energéticos, IA inicial y apropiación comunitaria.</p>
+        </article>
+        <article class="chart-card wide">
+          <div class="card-title"><div><span class="eyebrow">IA energética</span><h2>Alertas y recomendaciones explicables</h2></div><button id="addAlert" class="btn btn-outline small" type="button">Nueva recomendación</button></div>
+          <div id="alertsList" class="alerts-list"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section soft-section">
+      <div class="container split-grid">
+        <div>
+          <span class="eyebrow">Simulador de impacto</span>
+          <h2>Calcula ahorro y emisiones evitadas.</h2>
+          <p>Herramienta demostrativa para estimar beneficios a partir de generación renovable, tarifa de energía y factor de emisión.</p>
+        </div>
+        <form id="impactForm" class="impact-form glass-card">
+          <label>Generación renovable mensual kWh <input name="kwh" type="number" value="3200" min="0" /></label>
+          <label>Tarifa energía COP/kWh <input name="tarifa" type="number" value="820" min="0" /></label>
+          <label>Factor emisión kg CO₂/kWh <input name="factor" type="number" value="0.164" min="0" step="0.001" /></label>
+          <button class="btn btn-primary" type="submit">Calcular</button>
+          <div id="impactResult" class="impact-result"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-content"><p>Dashboard demostrativo para GitHub Pages · Datos simulados/editables</p></div></footer>
+  <script src="app.js"></script>
+</body>
+</html>

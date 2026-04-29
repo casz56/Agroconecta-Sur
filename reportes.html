@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reportes CTeI | AgroEnergía Conecta Sur</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="reportes">
+  <header class="site-header">
+    <div class="container header-content">
+      <a class="brand" href="index.html"><img src="assets/logo-infihuila.png" alt="Logo INFIHUILA" class="brand-logo" /><div><strong>AgroEnergía Conecta Sur</strong><span>Reportes CTeI, gobernanza y evidencias</span></div></a>
+      <nav class="main-nav"><a href="index.html">Inicio</a><a href="plataforma.html">Comunidad energética</a><a href="dashboard.html">Dashboard</a><a href="reportes.html" class="active">Reportes CTeI</a></nav>
+      <button class="nav-toggle" id="navToggle" type="button">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Matriz de defensa evaluadora</span>
+        <h1>Productos, indicadores, presupuesto, riesgos y evidencias del proyecto.</h1>
+        <p>Sección ejecutiva para sustentar que el aplicativo corresponde a una solución CTeI de transición energética, no a un marketplace agropecuario.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container report-grid">
+        <article class="report-card"><span class="eyebrow">Presupuesto recomendado</span><h2>$4.500 millones</h2><p>Escenario intermedio: solución renovable, sensores, plataforma, IA, apropiación social, validación y transferencia.</p></article>
+        <article class="report-card"><span class="eyebrow">Contrapartidas sugeridas</span><h2>$1.500 millones</h2><p>USCO/IES, INFIHUILA, comunidad energética, SENA y entidades territoriales.</p></article>
+        <article class="report-card"><span class="eyebrow">Valor total estimado</span><h2>$6.000 millones</h2><p>75% recursos SGR CTeI y 25% contrapartidas en especie/efectivo.</p></article>
+      </div>
+    </section>
+
+    <section class="section compact-top">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">Productos CTeI</span><h2>Entregables verificables y medibles.</h2></div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Producto</th><th>Indicador</th><th>Meta</th><th>Evidencia</th></tr></thead>
+            <tbody id="productsTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft-section">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">Fases de ejecución</span><h2>Ruta de 24 meses.</h2></div>
+        <div id="phasesGrid" class="phases-grid"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split-grid align-start">
+        <div>
+          <span class="eyebrow">Gobernanza</span>
+          <h2>Roles institucionales blindados.</h2>
+          <div class="role-list" id="roleList"></div>
+        </div>
+        <div>
+          <span class="eyebrow">Riesgos críticos</span>
+          <h2>Alertas y mitigación.</h2>
+          <div class="risk-list" id="riskList"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark-section">
+      <div class="container">
+        <div class="section-heading left"><span class="eyebrow light">Defensa ante evaluadores</span><h2>Tesis central del proyecto</h2></div>
+        <blockquote class="defense-quote">“AgroEnergía Conecta Sur no es una aplicación comercial; es una solución energética-digital CTeI para comunidades energéticas agroproductivas, que integra generación limpia, sensores, datos, IA explicable, apropiación social, validación en entorno real y sostenibilidad territorial.”</blockquote>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-content"><p>Reportes CTeI listos para sustentar la Convocatoria 049</p></div></footer>
+  <script src="app.js"></script>
+</body>
+</html>
